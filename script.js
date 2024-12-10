@@ -4,16 +4,17 @@ const containerWidth = 600;
 const dimensions = 16;
 for(let i = 0; i < dimensions; i++) {
     drawHorizontalContainer(i);
+
     for(let j = 0; j < dimensions; j++) {
         drawVerticalContainer(i, j);
     }
+
 }
 
 function drawHorizontalContainer(i) {
     const horizontalContainer = document.createElement(`div`);
     horizontalContainer.classList.toggle(`horizontal-container`);
     horizontalContainer.setAttribute(`id`, `horizontal-${i + 1}`)  ;
-    // horizontalContainer.textContent = `${i + 1}`;
     container.appendChild(horizontalContainer);
 }
 
