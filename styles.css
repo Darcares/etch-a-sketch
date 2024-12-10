@@ -16,6 +16,14 @@ body {
 }
 
 .horizontal-container {
+    display: flex;
     border: 1px solid red;
     flex: 1;
 }
+
+.vertical-container {
+    display: flex;
+    border: 1px solid red;
+    flex: 1;
+}
+

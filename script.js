@@ -4,24 +4,23 @@ const containerWidth = 600;
 const dimensions = 16;
 for(let i = 0; i < dimensions; i++) {
     drawHorizontalContainer(i);
-/*  const gridElement = document.createElement(`div`);
-    gridElement.classList.toggle(`gridElement`);
-    gridElement.style.height = `${containerHeight / dimensions}px`;
-    gridElement.style.width = `${containerWidth / dimensions}px`;
-    gridElement.textContent = `${i + 1}`;
-    container.appendChild(gridElement); */
+    for(let j = 0; j < dimensions; j++) {
+        drawVerticalContainer(i, j);
+    }
 }
 
 function drawHorizontalContainer(i) {
     const horizontalContainer = document.createElement(`div`);
     horizontalContainer.classList.toggle(`horizontal-container`);
-    horizontalContainer.textContent = `${i + 1}`;
+    horizontalContainer.setAttribute(`id`, `horizontal-${i + 1}`)  ;
+    // horizontalContainer.textContent = `${i + 1}`;
     container.appendChild(horizontalContainer);
 }
 
-/* function drawVerticalContainer(i) {
+function drawVerticalContainer(i, j) {
+    const horizontalContainer = document.querySelector(`#horizontal-${i + 1}`)
     const verticalContainer = document.createElement(`div`);
     verticalContainer.classList.toggle(`vertical-container`);
-    verticalContainer.textContent = `${i + 1}`;
-    container.appendChild(verticalContainer);
-} */
+    verticalContainer.textContent = `${i + 1}, ${j + 1} `;
+    horizontalContainer.appendChild(verticalContainer);
+}
