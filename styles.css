@@ -21,7 +21,17 @@ body {
 
 .vertical-container {
     display: flex;
-    border: 1px solid red;
     flex: 1;
+    border-left: 1px solid red;
+    border-bottom: 1px solid red;
 }
+
+.border-top {
+    border-top: 1px solid red;
+}
+
+.border-right {
+    border-right: 1px solid red;
+}
+
 

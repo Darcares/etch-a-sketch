@@ -19,9 +19,13 @@ function drawHorizontalContainer(i) {
 }
 
 function drawVerticalContainer(i, j) {
+    const firstRow = 0;
+    const lastColumn = 15;
     const horizontalContainer = document.querySelector(`#horizontal-${i + 1}`)
     const verticalContainer = document.createElement(`div`);
     verticalContainer.classList.toggle(`vertical-container`);
+    if (i === firstRow) verticalContainer.classList.toggle(`border-top`);
+    if (j === lastColumn) verticalContainer.classList.toggle(`border-right`);
     verticalContainer.setAttribute(`id`, `${i + 1},${j + 1}`)
     horizontalContainer.appendChild(verticalContainer);
 }
