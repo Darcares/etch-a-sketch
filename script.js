@@ -23,6 +23,5 @@ function drawVerticalContainer(i, j) {
     const verticalContainer = document.createElement(`div`);
     verticalContainer.classList.toggle(`vertical-container`);
     verticalContainer.setAttribute(`id`, `${i + 1},${j + 1}`)
-    verticalContainer.textContent = `${i + 1}, ${j + 1}`;
     horizontalContainer.appendChild(verticalContainer);
 }
