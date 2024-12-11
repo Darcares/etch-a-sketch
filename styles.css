@@ -10,8 +10,8 @@ body {
 #container {
     display: flex;
     flex-direction: column;
-    height: 600px;
-    width: 600px;
+    height: 99%;
+    aspect-ratio: 1 / 1;
 }
 
 .row {
