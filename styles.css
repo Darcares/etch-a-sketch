@@ -5,7 +5,7 @@ body {
     height: 100vh;
     padding: 0;
     margin: 0;
-    background-color: teal;
+    background-color: #FAF3E0; /* Light Beige */
 }
 
 #container {
@@ -22,18 +22,19 @@ body {
 
 .column {
     flex: 1;
-    border-left: 1px solid red;
-    border-bottom: 1px solid red;
+    background-color: #FFFAF0; /* Floral White */ 
+    border-left: 1px solid #B0C4DE; /* Light Steel Blue */
+    border-bottom: 1px solid #B0C4DE; /* Light Steel Blue */
 }
 
 .border-top {
-    border-top: 1px solid red;
+    border-top: 1px solid #B0C4DE; /* Light Steel Blue */
 }
 
 .border-right {
-    border-right: 1px solid red;
+    border-right: 1px solid #B0C4DE; /* Light Steel Blue */
 }
 
 .black-background {
-    background-color: black;
+    background-color: #FF4500; /* Orange-Red */
 }
