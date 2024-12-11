@@ -20,7 +20,6 @@ body {
 }
 
 .vertical-container {
-    display: flex;
     flex: 1;
     border-left: 1px solid red;
     border-bottom: 1px solid red;
