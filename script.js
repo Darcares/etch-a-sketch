@@ -1,19 +1,28 @@
-const container = document.querySelector(`#container`);
-const size = 16;
+`use strict`;
 
-for(let rowNo = 1; rowNo <= size; rowNo++) {
-    drawRow(rowNo);
+drawGrid();
 
-    for(let columnNo = 1; columnNo <= size; columnNo++) {
-        drawColumn(rowNo, columnNo);
+/* Beginning of functions' declaration section */
+
+function drawGrid() {
+    const container = document.querySelector(`#container`);
+    const size = 16;
+    
+    for(let rowNo = 1; rowNo <= size; rowNo++) {
+        drawRow(rowNo, container);
+    
+        for(let columnNo = 1; columnNo <= size; columnNo++) {
+            drawColumn(rowNo, columnNo);
+        }
+    
     }
-
+    
 }
 
-function drawRow(rowNo) {
+function drawRow(rowNo, container) {
     const row = document.createElement(`div`);
     row.classList.toggle(`row`);
-    row.setAttribute(`id`, `row-${rowNo}`)  ;
+    row.setAttribute(`id`, `row-${rowNo}`);
     container.appendChild(row);
 }
 
@@ -28,3 +37,5 @@ function drawColumn(rowNo, columnNo) {
     column.setAttribute(`id`, `row-${rowNo}, column-${columnNo}`);
     row.appendChild(column);
 }
+
+/* End of functions' declaration section */
