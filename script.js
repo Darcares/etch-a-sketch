@@ -76,7 +76,7 @@ function sketch() {
 
 function addHoverState(gridElement) {
     gridElement.addEventListener(`mouseenter`, (mouseEnter) => {
-        mouseEnter.target.classList.add(`black-background`);
+        mouseEnter.target.classList.add(`draw-background`);
     });
 }
 
