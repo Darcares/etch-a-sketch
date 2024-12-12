@@ -3,11 +3,29 @@
 drawGrid();
 sketch();
 
+const button = document.querySelector(`button`);
+
+button.addEventListener(`click`, () => {
+    let size = prompt(`Please type the size wished.\nMax size allowed: 100.`);
+    size = +size;
+    if(size > 100) size = 100;
+    
+    if(isNaN(size)) {
+        alert(`Value not valid. Please try again.`);
+    }
+
+    else {
+        cleanGrid();
+        drawGrid(size);
+        sketch();
+    }
+
+    
+});
 /* Beginning of functions' declaration section */
 
-function drawGrid() {
+function drawGrid(size = 16) {
     const container = document.querySelector(`#container`);
-    const size = 100;
     
     for(let rowNo = 1; rowNo <= size; rowNo++) {
         drawRow(rowNo, container);
@@ -37,6 +55,14 @@ function drawColumn(rowNo, columnNo, size) {
     if(columnNo === lastColumn) column.classList.toggle(`border-right`);
     column.setAttribute(`id`, `row-${rowNo}, column-${columnNo}`);
     row.appendChild(column);
+}
+
+function cleanGrid () {
+    const container = document.querySelector(`#container`);
+    const rows = document.querySelectorAll(`.row`);
+    rows.forEach((row) => {
+        container.removeChild(row);
+    })
 }
 
 function sketch() {
