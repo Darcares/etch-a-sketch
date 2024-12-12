@@ -3,14 +3,12 @@
 drawGrid();
 sketch();
 
-const button = document.querySelector(`button`);
-
-button.addEventListener(`click`, () => {
+const resizeButton = document.querySelector(`#resize-button`);
+resizeButton.addEventListener(`click`, () => {
     let size = prompt(`Please type the size wished.\nMax size allowed: 100.\nMin size allowed: 2`);
     
-    
     if(size !== null) {
-        size = +size;size = +size;
+        size = +size;
         if(isNaN(size)) {
             alert(`Value not valid. Please try again.`);
         }
@@ -18,7 +16,7 @@ button.addEventListener(`click`, () => {
         else {
             if(size > 100) size = 100;
             if(size < 2) size = 2;
-            cleanGrid();
+            eraseGrid();
             drawGrid(size);
             sketch();
         } 
@@ -26,13 +24,20 @@ button.addEventListener(`click`, () => {
   
 });
 
+const resetButton = document.querySelector(`#reset-button`);
+resetButton.addEventListener(`click`, () => {
+    const columns = document.querySelectorAll(`.column`);
+    columns.forEach((column) => {
+    column.classList.remove(`draw-background`);
+    });
+});
+
 /* Beginning of functions' declaration section */
 
 function drawGrid(size = 16) {
-    const container = document.querySelector(`#container`);
     
     for(let rowNo = 1; rowNo <= size; rowNo++) {
-        drawRow(rowNo, container);
+        drawRow(rowNo);
     
         for(let columnNo = 1; columnNo <= size; columnNo++) {
             drawColumn(rowNo, columnNo, size);
@@ -42,7 +47,8 @@ function drawGrid(size = 16) {
     
 }
 
-function drawRow(rowNo, container) {
+function drawRow(rowNo) {
+    const container = document.querySelector(`#container`);
     const row = document.createElement(`div`);
     row.classList.toggle(`row`);
     row.setAttribute(`id`, `row-${rowNo}`);
@@ -61,12 +67,12 @@ function drawColumn(rowNo, columnNo, size) {
     row.appendChild(column);
 }
 
-function cleanGrid () {
+function eraseGrid() {
     const container = document.querySelector(`#container`);
     const rows = document.querySelectorAll(`.row`);
     rows.forEach((row) => {
         container.removeChild(row);
-    })
+    });
 }
 
 function sketch() {
