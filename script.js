@@ -8,20 +8,19 @@ const button = document.querySelector(`button`);
 button.addEventListener(`click`, () => {
     let size = prompt(`Please type the size wished.\nMax size allowed: 100.`);
     size = +size;
-    if(size > 100) size = 100;
     
     if(isNaN(size)) {
         alert(`Value not valid. Please try again.`);
     }
 
     else {
+        if(size > 100) size = 100;
         cleanGrid();
         drawGrid(size);
         sketch();
-    }
-
-    
+    }   
 });
+
 /* Beginning of functions' declaration section */
 
 function drawGrid(size = 16) {
