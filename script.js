@@ -9,6 +9,9 @@ resizeButton.addEventListener(`click`, resizeGrid);
 const resetButton = document.querySelector(`#reset-button`);
 resetButton.addEventListener(`click`, resetGrid);
 
+const rgbButton = document.querySelector(`#rgb-button`);
+rgbButton.addEventListener(`click`, toogleRGB);
+
 /* Beginning of functions' declaration section */
 
 function drawGrid(size = 16) {
@@ -87,6 +90,10 @@ function resetGrid() {
     columns.forEach((column) => {
     column.classList.remove(`draw-background`);
     });
+}
+
+function toogleRGB() {
+    alert(`RGB works`);
 }
 
 /* End of functions' declaration section */
