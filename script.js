@@ -65,12 +65,6 @@ function sketch() {
     });
 }
 
-/* function addHoverState(gridElement) {
-    gridElement.addEventListener(`mouseenter`, (mouseEnter) => {
-        mouseEnter.target.classList.add(`draw-background`);
-    });
-} */
-
 function resizeGrid() {
     let size = prompt(`Please type the size wished.\nMax size allowed: 100.\nMin size allowed: 2`);
     
