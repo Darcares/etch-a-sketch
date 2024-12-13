@@ -55,14 +55,33 @@ function eraseGrid() {
     });
 }
 
-function sketch() {
+function sketch(isRgbActive = false) {
     const gridElements = document.querySelectorAll(`.column`);
     gridElements.forEach((gridElement) => {
 
         gridElement.addEventListener(`mouseenter`, (mouseEnter) => {
+
+           if(isRgbActive) {
+                const red = generateRandomNumber();
+                const green = generateRandomNumber();
+                const blue = generateRandomNumber();
+                const rgb = `rgb(${red}, ${green}, ${blue})`
+                mouseEnter.target.style.backgroundColor = rgb;
+            }
+
+            else {
+                const ORANGE_RED = `#FF4500`;
+                mouseEnter.target.style.backgroundColor = ORANGE_RED;
+            }
+
             mouseEnter.target.classList.add(`draw-background`);
         });
     });
+}
+
+function generateRandomNumber() {
+    const randomNumber = Math.floor(Math.random() * 256); //Returns a random integer from 0 to 255
+    return randomNumber;
 }
 
 function resizeGrid() {
@@ -85,14 +104,26 @@ function resizeGrid() {
 }
 
 function resetGrid() {
+    const FLORAL_WHITE = `#FFFAF0`;
     const columns = document.querySelectorAll(`.column`);
     columns.forEach((column) => {
-    column.classList.remove(`draw-background`);
+    column.style.backgroundColor = FLORAL_WHITE;
     });
 }
 
 function toggleRGB() {
-    alert(`RGB works`);
+    let isRgbActive;
+    if(rgbButton.textContent === `Activate RGB`) {
+        rgbButton.textContent = `Deactivate RGB`;
+        isRgbActive = true;
+    }
+
+    else if(rgbButton.textContent === `Deactivate RGB`) {
+        rgbButton.textContent = `Activate RGB`;
+        isRgbActive = false;
+    }
+
+    sketch(isRgbActive);
 }
 
 /* End of functions' declaration section */
