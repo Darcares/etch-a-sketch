@@ -10,7 +10,7 @@ const resetButton = document.querySelector(`#reset-button`);
 resetButton.addEventListener(`click`, resetGrid);
 
 const rgbButton = document.querySelector(`#rgb-button`);
-rgbButton.addEventListener(`click`, toogleRGB);
+rgbButton.addEventListener(`click`, toggleRGB);
 
 /* Beginning of functions' declaration section */
 
@@ -57,14 +57,19 @@ function eraseGrid() {
 
 function sketch() {
     const gridElements = document.querySelectorAll(`.column`);
-    gridElements.forEach(addHoverState);
+    gridElements.forEach((gridElement) => {
+
+        gridElement.addEventListener(`mouseenter`, (mouseEnter) => {
+            mouseEnter.target.classList.add(`draw-background`);
+        });
+    });
 }
 
-function addHoverState(gridElement) {
+/* function addHoverState(gridElement) {
     gridElement.addEventListener(`mouseenter`, (mouseEnter) => {
         mouseEnter.target.classList.add(`draw-background`);
     });
-}
+} */
 
 function resizeGrid() {
     let size = prompt(`Please type the size wished.\nMax size allowed: 100.\nMin size allowed: 2`);
@@ -92,7 +97,7 @@ function resetGrid() {
     });
 }
 
-function toogleRGB() {
+function toggleRGB() {
     alert(`RGB works`);
 }
 
