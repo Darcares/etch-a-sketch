@@ -39,10 +39,6 @@ body {
     border-right: 1px solid #B0C4DE; /* Light Steel Blue */
 }
 
-.draw-background {
-    background-color: #FF4500; /* Orange-Red */
-}
-
 .button-container {
     display: flex;
     flex: 1;
