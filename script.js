@@ -4,25 +4,7 @@ drawGrid();
 sketch();
 
 const resizeButton = document.querySelector(`#resize-button`);
-resizeButton.addEventListener(`click`, () => {
-    let size = prompt(`Please type the size wished.\nMax size allowed: 100.\nMin size allowed: 2`);
-    
-    if(size !== null) {
-        size = +size;
-        if(isNaN(size)) {
-            alert(`Value not valid. Please try again.`);
-        }
-    
-        else {
-            if(size > 100) size = 100;
-            if(size < 2) size = 2;
-            eraseGrid();
-            drawGrid(size);
-            sketch();
-        } 
-    }
-  
-});
+resizeButton.addEventListener(`click`, resizeGrid);
 
 const resetButton = document.querySelector(`#reset-button`);
 resetButton.addEventListener(`click`, () => {
@@ -86,4 +68,22 @@ function addHoverState(gridElement) {
     });
 }
 
+function resizeGrid() {
+    let size = prompt(`Please type the size wished.\nMax size allowed: 100.\nMin size allowed: 2`);
+    
+    if(size !== null) {
+        size = +size;
+        if(isNaN(size)) {
+            alert(`Value not valid. Please try again.`);
+        }
+    
+        else {
+            if(size > 100) size = 100;
+            if(size < 2) size = 2;
+            eraseGrid();
+            drawGrid(size);
+            sketch();
+        } 
+    }
+}
 /* End of functions' declaration section */
