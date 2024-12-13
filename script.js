@@ -7,12 +7,7 @@ const resizeButton = document.querySelector(`#resize-button`);
 resizeButton.addEventListener(`click`, resizeGrid);
 
 const resetButton = document.querySelector(`#reset-button`);
-resetButton.addEventListener(`click`, () => {
-    const columns = document.querySelectorAll(`.column`);
-    columns.forEach((column) => {
-    column.classList.remove(`draw-background`);
-    });
-});
+resetButton.addEventListener(`click`, resetGrid);
 
 /* Beginning of functions' declaration section */
 
@@ -86,4 +81,12 @@ function resizeGrid() {
         } 
     }
 }
+
+function resetGrid() {
+    const columns = document.querySelectorAll(`.column`);
+    columns.forEach((column) => {
+    column.classList.remove(`draw-background`);
+    });
+}
+
 /* End of functions' declaration section */
