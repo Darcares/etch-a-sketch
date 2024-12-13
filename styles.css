@@ -22,11 +22,11 @@ body {
 .row {
     display: flex;
     flex: 1;
-    background-color: #FFFAF0; /* Floral White */
 }
 
 .column {
     flex: 1; 
+    background-color: #FFFAF0; /* Floral White */
     border-left: 1px solid #B0C4DE; /* Light Steel Blue */
     border-bottom: 1px solid #B0C4DE; /* Light Steel Blue */
 }
@@ -46,7 +46,9 @@ body {
 .button-container {
     display: flex;
     flex: 1;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 button {
