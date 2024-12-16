@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Daniel Cárdenas">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +15,20 @@
     <title>Etch-a-Sketch</title>
 </head>
 <body>
-    <div id="instructions-container"></div>
+    <div id="instructions-container">
+        <h1 id="title">Etch-a-Sketch</h1>
+        <p>Instructions:</p>
+        <p id="instructions">
+            <ul>
+                <li>Pass the mouse over the elements to color them.</li>
+                <li>The resize grid button will ask you to enter a new size for the grid.</li>
+                <li>The reset grid button will erase your drawing.</li>
+                <li>The RGB button will activate or deactivate the feature in question.</li>
+                <li>The gradual opacity button will activate or deactivate the feature in question.</li>
+            </ul>
+        </p>
+    </div>
+    
     <div id="grid-container"></div>
     <div id="button-container">
         <button id="resize-button">Resize Grid</button>
