@@ -7,3 +7,7 @@ of this project.
 
 I would say the most difficult part was to finally use the capabilities
 of the 3 technologies together.
+
+The addition of the RGB was an interesting challenge, whilst it was not
+an strenuous one, it required to refactor the code a little bit. Specially
+take some CSS out and code it as dynamic manipulation of styles using Javascript.
