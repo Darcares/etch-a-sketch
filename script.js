@@ -31,6 +31,7 @@ function drawGrid(size = 16) {
     
     }
     
+    printGridCurrentSize(size);
 }
 
 function drawRow(rowNo) {
@@ -167,6 +168,11 @@ function obscureGridElement(mouseEnter) {
         gridElement.classList.remove(`opacity`);
     }
 
+}
+
+function printGridCurrentSize(size) {
+    const currentSize = document.querySelector(`#current-size`);
+    currentSize.textContent = `Current Size: ${size} x ${size}`;
 }
 
 /* End of functions' declaration section */

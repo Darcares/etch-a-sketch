@@ -45,6 +45,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 10px;
 }
 
 button {
@@ -53,7 +54,6 @@ button {
   color: #FFFAF0; /* Floral White */
   font-size: 20px;
   width: 100px;
-  margin-bottom: 3%;
 }
 
 #instructions-container {
@@ -75,6 +75,10 @@ ul {
 
 li {
   margin-bottom: 2%;
+}
+
+#current-size {
+  margin-top: 10%;
 }
 
 /* Roboto's font CSS classes */
