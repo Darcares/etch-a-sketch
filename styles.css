@@ -52,6 +52,8 @@ button {
     border-color: #B0C4DE; /* Light Steel Blue */
     color: #FFFAF0; /* Floral White */
     font-size: 20px;
+    width: 20%;
+    margin-bottom: 3%;
 }
 
 #instructions-container {
