@@ -135,7 +135,6 @@ function toggleOpacity() {
         gridElements.forEach((gridElement) => {
             if(gridElement.className.includes(`opacity`)) {
                 gridElement.classList.remove(`opacity`);
-                //gridElement.style.opacity = ``;
             }
         });
     }
