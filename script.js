@@ -67,7 +67,7 @@ function sketch() {
                 const red = generateRandomNumber();
                 const green = generateRandomNumber();
                 const blue = generateRandomNumber();
-                const rgb = `rgb(${red}, ${green}, ${blue})`
+                const rgb = `rgb(${red}, ${green}, ${blue})`;
                 mouseEnter.target.style.backgroundColor = rgb;
             }
 
