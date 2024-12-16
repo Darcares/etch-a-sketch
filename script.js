@@ -104,6 +104,9 @@ function resetGrid() {
     const columns = document.querySelectorAll(`.column`);
     columns.forEach((column) => {
     column.style.backgroundColor = FLORAL_WHITE;
+    column.style.opacity = ``;
+    if(column.className.includes(`draw`)) column.classList.remove(`draw`);
+    if(column.className.includes(`opacity`)) column.classList.remove(`opacity`);
     });
 }
 
@@ -128,6 +131,13 @@ function toggleOpacity() {
     else if(opacityButton.textContent === `Fixed Opacity`) {
         opacityButton.textContent = `Gradual Opacity`;
         isOpacityActive = false;
+        const gridElements = document.querySelectorAll(`.column`);
+        gridElements.forEach((gridElement) => {
+            if(gridElement.className.includes(`opacity`)) {
+                gridElement.classList.remove(`opacity`);
+                //gridElement.style.opacity = ``;
+            }
+        });
     }
 }
 
@@ -164,7 +174,7 @@ function obscureGridElement(mouseEnter) {
     }
 
     else if(!isOpacityActive && className.includes(`opacity`)) {
-        gridElement.style.opacity = `1`;
+        gridElement.style.opacity = ``;
         gridElement.classList.remove(`opacity`);
     }
 
