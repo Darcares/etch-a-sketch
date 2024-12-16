@@ -1,6 +1,7 @@
 `use strict`;
 
 let isRgbActive = false;
+let isOpacityActive = false;
 
 drawGrid();
 sketch();
@@ -13,6 +14,9 @@ resetButton.addEventListener(`click`, resetGrid);
 
 const rgbButton = document.querySelector(`#rgb-button`);
 rgbButton.addEventListener(`click`, toggleRGB);
+
+const opacityButton = document.querySelector(`#opacity-button`);
+opacityButton.addEventListener(`click`, toggleOpacity);
 
 /* Beginning of functions' declaration section */
 
@@ -62,21 +66,10 @@ function sketch() {
     gridElements.forEach((gridElement) => {
 
         gridElement.addEventListener(`mouseenter`, (mouseEnter) => {
-
-           if(isRgbActive) {
-                const red = generateRandomNumber();
-                const green = generateRandomNumber();
-                const blue = generateRandomNumber();
-                const rgb = `rgb(${red}, ${green}, ${blue})`;
-                mouseEnter.target.style.backgroundColor = rgb;
-            }
-
-            else {
-                const ORANGE_RED = `#FF4500`;
-                mouseEnter.target.style.backgroundColor = ORANGE_RED;
-            }
-
-            mouseEnter.target.classList.add(`draw-background`);
+            
+            colorGridElement(mouseEnter);
+            obscureGridElement(mouseEnter);
+ 
         });
     });
 }
@@ -123,6 +116,57 @@ function toggleRGB() {
         rgbButton.textContent = `Activate RGB`;
         isRgbActive = false;
     }
+}
+
+function toggleOpacity() {
+    if(opacityButton.textContent === `Gradual Opacity`) {
+        opacityButton.textContent = `Fixed Opacity`;
+        isOpacityActive = true;
+    }
+
+    else if(opacityButton.textContent === `Fixed Opacity`) {
+        opacityButton.textContent = `Gradual Opacity`;
+        isOpacityActive = false;
+    }
+}
+
+function colorGridElement(mouseEnter) {
+    if(isRgbActive) {
+        const red = generateRandomNumber();
+        const green = generateRandomNumber();
+        const blue = generateRandomNumber();
+        const rgb = `rgb(${red} ${green} ${blue})`;
+        mouseEnter.target.style.backgroundColor = rgb;
+    }
+
+    else {
+        const ORANGE_RED = `#FF4500`;
+        mouseEnter.target.style.backgroundColor = ORANGE_RED;
+    }
+
+    mouseEnter.target.classList.add(`draw`);
+}
+
+function obscureGridElement(mouseEnter) {
+    const gridElement = mouseEnter.target;
+    const className = mouseEnter.target.className;
+    if(isOpacityActive && !className.includes(`opacity`)) {
+        gridElement.style.opacity = `0.1`;
+        gridElement.classList.add(`opacity`);
+    }
+
+    else if (isOpacityActive && className.includes(`opacity`)) {
+        let opacity = +gridElement.style.opacity;
+        opacity += 0.1;
+        if(opacity > 1) opacity = 1;
+        gridElement.style.opacity = `${opacity}`;
+    }
+
+    else if(!isOpacityActive && className.includes(`opacity`)) {
+        gridElement.style.opacity = `1`;
+        gridElement.classList.remove(`opacity`);
+    }
+
 }
 
 /* End of functions' declaration section */
