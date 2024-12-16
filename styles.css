@@ -12,7 +12,7 @@ body {
     background-color: #FAF3E0; /* Light Beige */
 }
 
-#container {
+#grid-container {
     display: flex;
     flex-direction: column;
     height: 99%;
@@ -39,7 +39,7 @@ body {
     border-right: 1px solid #B0C4DE; /* Light Steel Blue */
 }
 
-.button-container {
+#button-container {
     display: flex;
     flex: 1;
     flex-direction: column;
@@ -54,7 +54,7 @@ button {
     font-size: 20px;
 }
 
-.instructions-container {
+#instructions-container {
     flex: 1;
 }
 

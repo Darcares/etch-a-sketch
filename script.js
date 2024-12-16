@@ -1,5 +1,7 @@
 `use strict`;
 
+let isRgbActive = false;
+
 drawGrid();
 sketch();
 
@@ -28,11 +30,11 @@ function drawGrid(size = 16) {
 }
 
 function drawRow(rowNo) {
-    const container = document.querySelector(`#container`);
+    const gridContainer = document.querySelector(`#grid-container`);
     const row = document.createElement(`div`);
     row.classList.toggle(`row`);
     row.setAttribute(`id`, `row-${rowNo}`);
-    container.appendChild(row);
+    gridContainer.appendChild(row);
 }
 
 function drawColumn(rowNo, columnNo, size) {
@@ -48,14 +50,14 @@ function drawColumn(rowNo, columnNo, size) {
 }
 
 function eraseGrid() {
-    const container = document.querySelector(`#container`);
+    const gridContainer = document.querySelector(`#grid-container`);
     const rows = document.querySelectorAll(`.row`);
     rows.forEach((row) => {
-        container.removeChild(row);
+        gridContainer.removeChild(row);
     });
 }
 
-function sketch(isRgbActive = false) {
+function sketch() {
     const gridElements = document.querySelectorAll(`.column`);
     gridElements.forEach((gridElement) => {
 
@@ -112,7 +114,6 @@ function resetGrid() {
 }
 
 function toggleRGB() {
-    let isRgbActive;
     if(rgbButton.textContent === `Activate RGB`) {
         rgbButton.textContent = `Deactivate RGB`;
         isRgbActive = true;
@@ -122,8 +123,6 @@ function toggleRGB() {
         rgbButton.textContent = `Activate RGB`;
         isRgbActive = false;
     }
-
-    sketch(isRgbActive);
 }
 
 /* End of functions' declaration section */
