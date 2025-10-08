@@ -1,8 +1,10 @@
 "use strict";
 
 drawGrid();
+paintElement();
 
 function drawGrid() {
+
     const container = document.querySelector(".container");
 
     for(let index = 0; index < 16; index++) {
@@ -16,5 +18,12 @@ function drawGrid() {
             column.appendChild(row);
         }
     }
+}
 
+function paintElement() {
+
+    const rows = document.querySelectorAll(".row");
+    rows.forEach(row => row.addEventListener("mouseover", event => {
+        row.classList.add("paint");
+    }));
 }
