@@ -10,12 +10,12 @@ function drawGrid(gridSize = 16) {
 
     for(let index = 0; index < gridSize; index++) {
         const column = document.createElement("div");
-        column.classList.toggle("column");
+        column.classList.add("column");
         container.appendChild(column);
 
           for(let indexTwo = 0; indexTwo < gridSize; indexTwo++) {
             const row = document.createElement("div");
-            row.classList.toggle("row");
+            row.classList.add("row");
             column.appendChild(row);
         }
     }
@@ -43,7 +43,7 @@ function resetGrid() {
 
         body.removeChild(container);
         body.append(newContainer);
-        
+
         drawGrid(gridSize);
         paintElement();
     });
