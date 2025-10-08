@@ -27,3 +27,7 @@ function paintElement() {
         row.classList.add("paint");
     }));
 }
+
+function resetGrid() {
+    
+}
